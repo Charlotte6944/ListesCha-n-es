@@ -1,5 +1,1 @@
-# TP réalisé par:
-# Pierre-Henri
-# Jérémy
-# Tristan
-# Charlotte
+# TP réalisé par: Pierre-Henri, Jérémy, Tristan, Charlotte
