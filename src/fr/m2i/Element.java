@@ -3,14 +3,14 @@ package fr.m2i;
 public class Element <T> {
 
 	private T valeurElement;
-	private Element precElement;
-	private Element suivElement;
+	private Element <T> precElement;
+	private Element <T> suivElement;
 	
 	public Element(T valeurElement) {
 		this.setValeurElement(valeurElement);
 	}
 	
-	public Element(T valeurElement, Element precElement) {
+	public Element(T valeurElement, Element <T> precElement) {
 		this.setValeurElement(valeurElement);
 		this.setPrecElement(precElement);
 	}
@@ -21,16 +21,16 @@ public class Element <T> {
 	public void setValeurElement(T valeurElement) {
 		this.valeurElement = valeurElement;
 	}
-	public Element getPrecElement() {
+	public Element <T> getPrecElement() {
 		return precElement;
 	}
-	public void setPrecElement(Element precElement) {
+	public void setPrecElement(Element <T> precElement) {
 		this.precElement = precElement;
 	}
-	public Element getSuivElement() {
+	public Element <T> getSuivElement() {
 		return suivElement;
 	}
-	public void setSuivElement(Element suivElement) {
+	public void setSuivElement(Element <T> suivElement) {
 		this.suivElement = suivElement;
 	}
 	

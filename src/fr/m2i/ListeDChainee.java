@@ -1,16 +1,19 @@
 package fr.m2i;
 
-public class ListeDChainee {
+public class ListeDChainee<T> {
 	
-	private Element premierElement;
-	private Element dernierElement;
+	private Element<T> premierElement;
+	private Element<T> dernierElement;
 	
+	@SuppressWarnings({ "hiding", "unchecked" })
 	public <T> void add(T valeurElement)  {
 		if(premierElement == null) {
+			@SuppressWarnings("rawtypes")
 			Element elem = new Element(valeurElement);
 			setPremierElement(elem);
 			setDernierElement(elem);
 		} else {
+			@SuppressWarnings("rawtypes")
 			Element elem = new Element(valeurElement, dernierElement);
 			getDernierElement().setSuivElement(elem);
 			setDernierElement(elem);
@@ -25,7 +28,7 @@ public class ListeDChainee {
 		}
 	}
 	
-	public void remove(int index, Element elem) {
+	public void remove(int index, Element<T> elem) {
 		if(index == 0) {
 			if(elem.getPrecElement() != null) {
 				elem.getPrecElement().setSuivElement(elem.getSuivElement());				
@@ -42,7 +45,7 @@ public class ListeDChainee {
 		}
 	}
 	
-	public Element get(int index) {
+	public Element<T> get(int index) {
 		if(premierElement == null) {
 			System.out.println("la valeur que vous cherchez n'existe pas!!");
 			return null;
@@ -51,7 +54,7 @@ public class ListeDChainee {
 		}
 	}
 	
-	public Element get(int index, Element elem) {
+	public Element<T> get(int index, Element<T> elem) {
 		if(index == 0) {
 			System.out.println(elem.getValeurElement());
 			return elem;
@@ -74,8 +77,6 @@ public class ListeDChainee {
 		}
 	}*/
 	
-	
-	
 	public void print() {
 		if(premierElement == null) {
 			System.out.println("il n'y a aucun élément dans ma liste");
@@ -84,7 +85,7 @@ public class ListeDChainee {
 		}
 	}
 	
-	public void print(Element elem) {
+	public void print(Element<T> elem) {
 		System.out.print(elem.getValeurElement());
 		if(elem.getSuivElement() == null) {
 			System.out.println(" - fin liste");
@@ -94,19 +95,19 @@ public class ListeDChainee {
 		}
 	}
 	
-	public Element getPremierElement() {
+	public Element<T> getPremierElement() {
 		return premierElement;
 	}
 
-	public void setPremierElement(Element premierElement) {
+	public void setPremierElement(Element<T> premierElement) {
 		this.premierElement = premierElement;
 	}
 
-	public Element getDernierElement() {
+	public Element<T> getDernierElement() {
 		return dernierElement;
 	}
 
-	public void setDernierElement(Element dernierElement) {
+	public void setDernierElement(Element<T> dernierElement) {
 		this.dernierElement = dernierElement;
 	}
 
